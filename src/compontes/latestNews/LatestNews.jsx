@@ -15,7 +15,6 @@ const LatestNews = () => {
 
         <p className='font-bold'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, aperiam?</p>
         </Marquee>
-
         </div>
     );
 };
