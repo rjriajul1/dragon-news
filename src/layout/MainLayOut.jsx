@@ -1,35 +1,39 @@
-import React from 'react';
-import { Outlet } from 'react-router';
-import Header from '../compontes/header/Header';
-import LatestNews from '../compontes/latestNews/LatestNews';
-import Navbar from '../compontes/navbar/Navbar';
+import React from "react";
+import { Outlet, useNavigation } from "react-router";
+import Header from "../compontes/header/Header";
+import LatestNews from "../compontes/latestNews/LatestNews";
+import Navbar from "../compontes/navbar/Navbar";
+import LeftAsid from "../compontes/leftAside/LeftAsid";
+import RightAside from "../compontes/rightAside/RightAside";
 
 const MainLayOut = () => {
-    return (
-        <div>
-            <header>
-                <Header/>
-                <section className='w-11/12 mx-auto my-5'>
-                    <LatestNews/>
-                </section>
-                <nav className='w-11/12 mx-auto my-5'>
-                    <Navbar/>
-                </nav>
-            </header>
-            <main>
-                <aside>
-                    left side
-                </aside>
-                <section>
-                    <Outlet/>
-                </section>
-                <aside >
-                    right side 
-              
-                </aside>
-            </main>
-        </div>
-    );
+  const navigation = useNavigation();
+  const isNavigating = Boolean(navigation.location);
+  return (
+    <div>
+      <header>
+        <Header />
+        <section className="w-11/12 mx-auto my-8">
+          <LatestNews />
+        </section>
+        <nav className="w-11/12 mx-auto my-12">
+          <Navbar />
+        </nav>
+      </header>
+      <main className="w-11/12 mx-auto  gap-5 grid grid-cols-12">
+        <aside className="col-span-3">
+          <LeftAsid />
+        </aside>
+        <section className="col-span-6">
+            {isNavigating && <p>Loading.....</p>}
+          <Outlet />
+        </section>
+        <aside className="col-span-3">
+          <RightAside />
+        </aside>
+      </main>
+    </div>
+  );
 };
 
 export default MainLayOut;
