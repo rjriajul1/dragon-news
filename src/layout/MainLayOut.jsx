@@ -1,11 +1,12 @@
 import React from 'react';
 import { Outlet } from 'react-router';
+import Header from '../compontes/header/Header';
 
 const MainLayOut = () => {
     return (
         <div>
             <header>
-                this is header
+                <Header/>
             </header>
             <main>
                 <aside>
