@@ -4,6 +4,9 @@ import Home from "../pages/home/Home";
 import CategoryNews from "../pages/categoryNews/CategoryNews";
 import About from "../compontes/about/About";
 import Career from "../compontes/career/Career";
+import AuthLayout from "../layout/AuthLayout";
+import Register from "../pages/register/Register";
+import Logins from "../pages/login/Login";
 
 export const router = createBrowserRouter([
     {
@@ -29,5 +32,21 @@ export const router = createBrowserRouter([
                 Component:Career
             }
         ]
+    },
+    {
+        path:'/auth',
+        element:<AuthLayout></AuthLayout>,
+        children:[
+            {
+                path:'/auth/login',
+                element:<Logins></Logins>
+            },
+            {
+                path:'/auth/register',
+                element:<Register></Register>
+            }
+        ]
     }
+
+   
 ])
