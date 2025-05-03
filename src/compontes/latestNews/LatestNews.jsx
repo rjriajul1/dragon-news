@@ -6,7 +6,7 @@ const LatestNews = () => {
         <div className='my-4 flex gap-4 items-center bg-base-200 p-4'>
             <p className='btn btn-secondary font-semibold text-xl'>Latest</p>
 
-        <Marquee className='flex gap-5' pauseOnHover={true} speed={70} style={{color:'red'}}>
+        <Marquee className='flex gap-5' pauseOnHover={true} speed={60} style={{color:'blue'}}>
         <p className='font-bold'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, aperiam?</p>
 
         <p className='font-bold'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, aperiam?</p>

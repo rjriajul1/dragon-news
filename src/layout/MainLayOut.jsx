@@ -21,14 +21,15 @@ const MainLayOut = () => {
         </nav>
       </header>
       <main className="w-11/12 mx-auto  gap-5 grid grid-cols-12">
-        <aside className="col-span-3">
+        <aside className="col-span-3 sticky top-0 h-fit">
           <LeftAsid />
         </aside>
+
         <section className="col-span-6">
-            {isNavigating && <p>Loading.....</p>}
+          {isNavigating && <p>Loading.....</p>}
           <Outlet />
         </section>
-        <aside className="col-span-3">
+        <aside className="col-span-3 sticky top-0 h-fit">
           <RightAside />
         </aside>
       </main>
