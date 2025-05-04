@@ -1,9 +1,15 @@
-import React from 'react';
+import React  from 'react';
 import { CgMenuMotion } from 'react-icons/cg';
 import { FaRegBookmark } from 'react-icons/fa';
+import { useNavigate } from 'react-router';
+// import { AuthContext } from '../../context/AuthContext';
 
 const NewsCard = ({ news }) => {
+
+  // const {setLoading} = use(AuthContext)
+  const navigate = useNavigate();
   const {
+    id,
     title,
     author,
     details,
@@ -12,11 +18,17 @@ const NewsCard = ({ news }) => {
     rating,
   } = news;
 
+
   const formattedDate = new Date(author.published_date).toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'long',
     day: 'numeric',
   });
+
+  const handleReadMore = () =>{
+    navigate(`/auth/newsDetails/${id}`)
+    // setLoading(false)
+  }
 
   return (
     <div className="w-full mx-auto mb-5 bg-white rounded-xl shadow-md overflow-hidden">
@@ -40,7 +52,7 @@ const NewsCard = ({ news }) => {
 
       <div className="px-4 py-2 text-gray-700 text-sm">
         {details.length > 200 ? `${details.slice(0, 200)}...` : details}
-        <span className="text-blue-500 font-medium ml-2 cursor-pointer">Read More</span>
+        <span onClick={handleReadMore} className="text-blue-500 font-medium ml-2 cursor-pointer">Read More</span>
       </div>
       <div className="px-4 py-4 flex items-center justify-between mt-5 bg-base-200">
         <div className="flex items-center text-orange-400">
