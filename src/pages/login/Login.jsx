@@ -4,7 +4,7 @@ import { AuthContext } from '../../context/AuthContext';
 
 const Logins = () => {
 
-    const {loginUser} = use(AuthContext);
+    const {loginUser,setError,error} = use(AuthContext);
     const navigate = useNavigate();
 
  const location = useLocation();
@@ -17,8 +17,8 @@ const Logins = () => {
         
         const email = form.email.value
         const password = form.password.value;
-        console.log(email,password);
-
+       
+         setError('')
         loginUser(email,password)
         .then(result=>{
             console.log(result);
@@ -26,7 +26,7 @@ const Logins = () => {
             
         })
         .catch(error=>{
-            console.log(error.message);
+            setError(error.message);
         })
 
     }
@@ -35,7 +35,7 @@ const Logins = () => {
       
           <div className="card bg-base-100 mx-auto mt-20 w-full max-w-sm shrink-0 shadow-2xl">
             <div className="card-body">
-            <h1 className="text-3xl font-bold">Login now!</h1>
+            <h1 className="text-3xl font-bold text-center">Login now!</h1>
               <form onSubmit={handleLogin} className="fieldset">
                 {/* email */}
                 <label className="label">Email</label>
@@ -45,6 +45,7 @@ const Logins = () => {
                 <input type="password" required name='password' className="input" placeholder="Password" />
                 <div><a className="link link-hover">Forgot password?</a></div>
                 <button className="btn btn-neutral mt-4">Login</button>
+                <p className='text-center text-red-500'>{error}</p>
                 <p className='text-center mt-5 text-[16px]'>Don't have an account ? Please <Link className='text-blue-500 underline font-bold' to='/auth/register'>Register</Link></p>
               </form>
             </div>

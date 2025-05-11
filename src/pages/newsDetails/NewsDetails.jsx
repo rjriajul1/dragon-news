@@ -43,7 +43,7 @@ const NewsDetails = () => {
                {news.details}
               </p>
               <div className="card-actions ">
-                <button onClick={()=>navigate(-1)} className="btn btn-secondary">All news in this category</button>
+                <button onClick={()=>navigate(-1)} className="btn btn-secondary">Back to category</button>
               </div>
             </div>
           </div>

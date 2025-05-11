@@ -5,6 +5,7 @@ import { use } from "react";
 const Navbar = () => {
   const { user, userSignOut } = use(AuthContext);
 
+
   const handleSignOut = () => {
     userSignOut();
   };
@@ -25,8 +26,13 @@ const Navbar = () => {
           </li>
         </ul>
       </div>
-      <div className="flex gap-5">
-        <img src={userImg} alt="" />
+      <div className="flex items-center gap-5">
+        {/* {
+          user ? <img className="w-16 rounded-full h-16" src={user?.photoURL} alt="" /> : <img src={userImg} alt="" />
+        } */}
+
+        <img className="w-16 h-16 rounded-full" src={`${user ? user.photoURL : userImg}`} alt="" />
+        
         <div>
           {user ? (
             <button

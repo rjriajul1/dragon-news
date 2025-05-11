@@ -26,7 +26,7 @@ const NewsCard = ({ news }) => {
   });
 
   const handleReadMore = () =>{
-    navigate(`/auth/newsDetails/${id}`)
+    navigate(`/newsDetails/${id}`)
     // setLoading(false)
   }
 
